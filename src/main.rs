@@ -1,15 +1,18 @@
 fn main() {
-    //Obtener el nombre del usuario
-    println!("Introduce tu nombre: ");
-    let mut nombre : String = String::new();
-    std::io::stdin().read_line(&mut nombre).unwrap();
-    nombre = nombre.trim().to_string();
-    
-    //Obtener el edad del usuario
-    println!("Introduce tu país: ");
-    let mut pais : String = String::new();
-    std::io::stdin().read_line(&mut pais).unwrap();
-    pais = pais.trim().to_string();
+    println!("Por favor introduce tu edad: ");
+    let mut edad: String = String::new();
+    std::io::stdin().read_line(&mut edad).unwrap();
 
-    println!("Hola {} de {}", nombre, pais)
+    let edad_int : u8 = edad.trim().parse().unwrap();
+
+    if edad_int >= 18 {
+        println!("Puedes entrar a la discoteca");
+    } if
+        edad_int >= 90 {
+            println!("pero tal vez no deberías entrar.");
+        } else {
+        println!("No puedes entrar a la discoteca, eres menor de edad");
+    }
+
+    println!("Tienes {} años", edad_int);
 }
