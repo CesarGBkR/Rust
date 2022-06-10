@@ -1,19 +1,25 @@
 fn main(){
-    println!("¿Cuál es tu nombre?: ");
-    let mut nombre: String = String::new();
-    std::io::stdin().read_line(&mut nombre).unwrap();
-    nombre = nombre.trim().to_string();
+    //Dos numeros que vamos a sumar
+    let numero_1 = 123;
+    let numero_2 = 321;
     
-    println!("Elige tu píldora, tienes dos opciones, la pildora azul(1) o la pildora roja(2): ");
-    let mut pildora: String = String::new();
-    std::io::stdin().read_line(&mut pildora).unwrap();
-    let pildora_int : u8 = pildora.trim().parse().unwrap();
+    let suma = numero_1 + numero_2;
 
-    if pildora_int == 1{
-        println!("Muy bien, {}. Sígueme, elegiste la pildora roja", nombre);
-    } else if pildora_int == 2{
-        println!("Como prefieras {}. No nos veremos nunca más, elegiste la pildora azul", nombre);
-    } else{
-        println!("Has elegido mal")
+    loop{
+        //Mostrar dos numeros en pantalla
+        println!("Por favor escribir la suma de {} y {}: ", numero_1, numero_2);
+    
+        //Obtener del usuario el numero que representa la suma
+        let mut suma_usuario = String::new();
+        std::io::stdin().read_line(&mut suma_usuario).unwrap();
+    
+        let suma_usuario_int : i32 = suma_usuario.trim().parse().unwrap();
+    
+        if suma_usuario_int == suma {
+            println!("Lo hciste bien, el resultado {} es correcto", suma_usuario_int);
+            break;
+        } else{
+            println!("Lo sineto, {} no es el resultado correcto, vuelve a intetnar", suma_usuario_int);
+        }
     }
 }
